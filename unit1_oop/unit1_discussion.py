@@ -32,7 +32,10 @@ class ParentClass:
         self.book_author = book_author
 
     def display_info(self):
-        print(f"{self.book_name} {self.book_author}")
+        if self.book_name == "":
+            print(f"Unknown Title - {self.book_author}")
+        else:
+            print(f"{self.book_name} {self.book_author}")
 
     def display_library(self):
         print(self.library)
@@ -92,8 +95,7 @@ eBook2.display_file_info()
 # - Display information about the class namespace.
 
 def demonstrate_namespaces():
-    # print("\n=== Namespace Demonstration ===")
-    # print("TODO: Implement namespace demonstration")
+    print("\n=== Namespace Demonstration ===")
 
     eBook1 = ChildClass("The Way of the Shepard", "Kevin L.", "PDF", 20)
     eBook2 = ChildClass("High Output Management", "Andrew G.", "PDF", 40)
@@ -121,8 +123,7 @@ def demonstrate_namespaces():
 # - Use comments to explain the difference between shallow and deep copying.
 
 def demonstrate_copying():
-    # print("\n=== Copy Demonstration ===")
-    # print("TODO: Implement shallow copy and deep copy demonstration")
+    print("\n=== Shallow Copying and Deep Copying ===")
 
     books = [
         ["The Way of the Shepard", "High Output Management"], ["The Wealth of Nations", "The Intelligent Investor"]
@@ -153,16 +154,16 @@ def demonstrate_copying():
 # - Call your copy demonstration function.
 
 def main():
-    # print("=== Unit 1 OOP Assignment ===")
-    #
-    # print("\nTODO: Create and test your parent object")
-    #
-    # print("\nTODO: Create and test your child object")
+    print("\n=== Library System ===")
 
     book1 = ParentClass("Let My People Go Surfing", "Yvon C.")
 
     book1.display_info()
     book1.display_library()
+
+    # Edge case test to see how the program handles an empty book title.
+    book3 = ParentClass("", "Karl D.")
+    book3.display_info()
 
     eBook1 = ChildClass("The Way of the Shepard", "Kevin L.", "PDF", 20)
 

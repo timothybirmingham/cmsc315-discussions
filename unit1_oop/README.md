@@ -4,6 +4,23 @@
 
 This assignment explores object-oriented programming (OOP) concepts in Python, including inheritance, namespaces, and object copying.
 
+## Implementation
+
+The ParentClass represents a book and stores the title and its author. 
+
+The ChildClass inherits from the ParentClass and represents an eBook, which adds two attributes both file_format and
+file_size. This program also overrides the ParentClass' display_info(), which list the other two attributes added, while
+also adding another method for displaying just the file information.
+
+This program uses __dict__ to demonstrate class and instance namespace, while also illustrating the difference
+between both shallow copying and deep copying.
+
+## Real-World Use
+
+This concept could be applicable to a library system where you take the library's (Manheim Township Public Library)
+system with different types of books that share common information like a title and author, but require more information
+like the eBooks, such as: file_format and file_size. 
+
 ## Learning Objectives
 
 - Create parent and child classes
