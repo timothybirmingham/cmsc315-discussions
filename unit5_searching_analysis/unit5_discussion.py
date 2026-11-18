@@ -1,3 +1,4 @@
+
 """
 =====================================================
 UNIT 5 DISCUSSION: SEARCH ALGORITHMS (LINEAR vs BINARY)
@@ -26,7 +27,11 @@ def linear_search(lst, target):
     - Add comments explaining why linear search
       has O(n) time complexity.
     """
-    pass
+    # O(n) because it might need to check every item
+    for i in range(len(lst)):
+        if lst[i] == target:
+            return i
+    return -1
 
 
 def binary_search(lst, target):
@@ -42,7 +47,22 @@ def binary_search(lst, target):
     - Add comments explaining how each iteration
       reduces the search space.
     """
-    pass
+    left = 0
+    right = len(lst) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if lst[mid] == target:
+            return mid
+        elif lst[mid] < target:
+            # Ignore the lower half
+            left = mid + 1
+        else:
+            # Ignore the upper half
+            right = mid - 1
+
+    return -1
 
 
 def main():
@@ -61,7 +81,16 @@ def main():
     # 4. Use comments to clearly explain the results.
 
     print("\n=== SMALL DATASET TEST ===")
-    print("TODO: Create a small dataset and test both searches.")
+
+    small_list = [5, 10, 15, 20, 25, 30, 35]
+
+    # 20 is at index 3
+    print("Linear:", linear_search(small_list, 20))
+    print("Binary:", binary_search(small_list, 20))
+
+    # 50 is not in the list so both return -1
+    print("Linear:", linear_search(small_list, 50))
+    print("Binary:", binary_search(small_list, 50))
 
     # ===============================
     # TODO (Student): LARGE DATASET
@@ -75,7 +104,14 @@ def main():
     #    efficient as datasets grow larger.
 
     print("\n=== LARGE DATASET TEST ===")
-    print("TODO: Create a larger dataset and compare results.")
+
+    large_list = list(range(100000))
+
+    print("Linear:", linear_search(large_list, 99999))
+    print("Binary:", binary_search(large_list, 99999))
+
+    # Both find the same index but binary search
+    # checks fewer values since it cuts the list in half
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -93,7 +129,18 @@ def main():
     # Explain what happens in each case.
 
     print("\n=== EDGE CASE TESTS ===")
-    print("TODO: Demonstrate and explain edge cases.")
+
+    # Empty list returns -1
+    print("Linear empty:", linear_search([], 10))
+    print("Binary empty:", binary_search([], 10))
+
+    # Single element returns index 0
+    print("Linear single:", linear_search([10], 10))
+    print("Binary single:", binary_search([10], 10))
+
+    # First position returns index 0
+    print("Linear first:", linear_search(small_list, 5))
+    print("Binary first:", binary_search(small_list, 5))
 
 
 if __name__ == "__main__":
