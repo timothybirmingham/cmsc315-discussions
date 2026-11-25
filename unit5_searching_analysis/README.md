@@ -19,6 +19,7 @@ This assignment compares linear search and binary search.
 4. Analyze performance.
 5. Create a real-world search scenario.
 
+## Reflections
 
 ## Discussion Board Reflection
 

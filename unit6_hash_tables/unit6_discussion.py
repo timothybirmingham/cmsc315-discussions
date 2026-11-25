@@ -31,9 +31,17 @@ def main():
     #    behaves like a hash table.
     # 4. Display the contents of the dictionary.
 
-
     print("\n=== INSERT OPERATIONS ===")
-    print("TODO: Create a dictionary and add multiple key-value pairs.")
+    inventory = {}
+
+    # product IDs are the keys and the quantity is the value.
+    inventory["SKU101"] = 50
+    inventory["SKU102"] = 30
+    inventory["SKU103"] = 25
+    inventory["SKU104"] = 15
+    inventory["SKU105"] = 20
+
+    print(inventory)
 
     # ===============================
     # TODO (Student): LOOKUP OPERATIONS
@@ -45,7 +53,9 @@ def main():
     # 3. Add meaningful comments to explain how the lookup works.
 
     print("\n=== LOOKUP OPERATIONS ===")
-    print("TODO: Demonstrate successful key lookups.")
+    # this hashes the keys to locate their values.
+    print("SKU101:", inventory["SKU101"])
+    print("SKU103:", inventory["SKU103"])
 
     # ===============================
     # TODO (Student): UPDATE OPERATIONS
@@ -58,7 +68,11 @@ def main():
     #    a new value.
 
     print("\n=== UPDATE OPERATIONS ===")
-    print("TODO: Demonstrate updating an existing key.")
+    print("Before update:", inventory)
+    # this updates the quantity left after a purchase.
+    inventory["SKU101"] = 49
+
+    print("After update:", inventory)
 
     # ===============================
     # TODO (Student): DELETE OPERATIONS
@@ -70,7 +84,11 @@ def main():
     # 3. Use comments to explain what happens when a key is removed.
 
     print("\n=== DELETE OPERATIONS ===")
-    print("TODO: Demonstrate deleting a key-value pair.")
+    print("Before deletion:", inventory)
+    # this removes the dis product and its quantity.
+    del inventory["SKU104"]
+
+    print("After deletion:", inventory)
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -87,9 +105,11 @@ def main():
     # Explain what happens in each case.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate and explain edge cases.")
+    # this returns a default value of the key is missing
+    print(inventory.get("SKU999", "Product not found"))
 
-
+    # this prevents an error when removing a missing key
+    print(inventory.pop("SKU999", "Product not found"))
 
 if __name__ == "__main__":
     main()
